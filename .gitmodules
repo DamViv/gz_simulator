@@ -1,0 +1,3 @@
+[submodule "ws/src/multi-robot-gz-simulator"]
+	path = ws/src/multi-robot-gz-simulator
+	url = git@github.com:DamViv/multirobot-gz-simulator.git
