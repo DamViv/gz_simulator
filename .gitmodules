@@ -1,3 +1,6 @@
 [submodule "ws/src/multi-robot-gz-simulator"]
 	path = ws/src/multi-robot-gz-simulator
 	url = git@github.com:DamViv/multirobot-gz-simulator.git
+[submodule "ws/src/tf_relay"]
+	path = ws/src/tf_relay
+	url = git@github.com:DamViv/tf_relay.git
