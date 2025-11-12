@@ -33,6 +33,7 @@ RUN apt-get update && apt upgrade -y && apt-get install -y \
     python3-colcon-common-extensions \
     ros-jazzy-tf-transformations \
     ros-jazzy-joint-state-publisher-gui	\
+    ros-jazzy-grid-map -y \
     && rm -rf /var/lib/apt/lists/* 
 
 
@@ -44,9 +45,9 @@ WORKDIR /root/ros_jazzy_ws
 # ROS2 environment setting for root user
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
 RUN echo "source /root/ros_jazzy_ws/install/setup.bash" >> /root/.bashrc
-RUN echo "source /opt/ros/jazzy/setup.bash && cd /root/ros_jazzy_ws && colcon build"
+RUN echo "source /opt/ros/jazzy/setup.bash && cd /root/ros_jazzy_ws && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release"
 
-RUN echo 'alias start_simu="ros2 launch rover_gz_bringup startSimulator.launch.py"' >> ~/.bashrc
+RUN echo 'alias start_simu="ros2 launch multirobot_gz_simulator fleet.launch.py"' >> ~/.bashrc
 
 ENV XDG_RUNTIME_DIR=/tmp
 
